@@ -11,8 +11,13 @@ public class EmployeeServiceImpl implements EmployeeService{
     EmployeeRepository employeeRepository;
 
     @Override
-    public String saveEmployeeData(Employee employee) {
-        Employee save = employeeRepository.save(employee);
-        return "Data is save";
+    public Boolean saveEmployeeData(Employee employee) {
+        try {
+            Employee save = employeeRepository.save(employee);
+            return true;
+        }catch (Exception e){
+            return false;
+        }
+
     }
 }
